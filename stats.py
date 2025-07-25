@@ -3,9 +3,11 @@ def get_book_text(filepath):
         file_contents = f.read()
     return file_contents
 
+
 def count_words(contents):
     book = get_book_text(contents)
     return f"{len(book.split())}"
+
 
 def letter_stats(contents):
     dic = {}
@@ -16,8 +18,10 @@ def letter_stats(contents):
             dic[letter.lower()] += 1
     return dic
 
+
 def sort_on(items):
     return items["num"]
+
 
 def sort_dictionary(diccy):
     result = []
@@ -26,7 +30,8 @@ def sort_dictionary(diccy):
     result.sort(reverse=True, key=sort_on)
     return result
 
+
 def final_report(sorted):
     for i in sorted:
         if i["char"].isalpha():
-            print(f'{i["char"]}: {i["num"]}')
+            print(f"{i['char']}: {i['num']}")

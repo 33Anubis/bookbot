@@ -5,10 +5,11 @@ from stats import sort_dictionary
 from stats import final_report
 import sys
 
+
 def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: python3 main.py <path_to_book>")
-    
+
     book_path = sys.argv[1]
 
     text = get_book_text(book_path)
@@ -23,5 +24,6 @@ def main():
     print("--------- Character Count -------")
     print(final_report(sort))
     print("============= END ===============")
+
 
 main()
