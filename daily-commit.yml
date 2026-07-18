@@ -1,0 +1,27 @@
+name: Daily Auto Commit
+
+on:
+  schedule:
+    # Runs every day at 12:00 AM UTC (Adjust cron format for other times)
+    - cron: '0 2 * * *'
+  # Allows you to manually trigger the script from the Actions tab
+  workflow_dispatch: 
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Make a Small Change to README
+        run: |
+          echo -e "\nLast automated update: $(date -u)" >> README.md
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add README.md
+          git commit -m "docs: automatic daily readme update"
+          git push
