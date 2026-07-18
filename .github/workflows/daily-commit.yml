@@ -3,7 +3,7 @@ name: Daily Auto Commit
 on:
   schedule:
     # Runs every day at 12:00 AM UTC (Adjust cron format for other times)
-    - cron: '0 2 * * *'
+    - cron: '0 21 * * *'
   # Allows you to manually trigger the script from the Actions tab
   workflow_dispatch: 
 
